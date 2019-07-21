@@ -3,6 +3,16 @@
 #include <string>
 using namespace std;
 
+#pragma pack(push, 1) // Redmoves struct padding
+
+struct Person {
+	char name[50];
+	int age;
+	double weight;
+};
+
+#pragma pack(pop) // Re-enables padding for anything below
+
 int main() {
 
 	// Writing to file
@@ -44,29 +54,31 @@ int main() {
 	}*/
 
 
-	inFile.open(inFileName);
-	if (!inFile.is_open()) {
-		return 1;
-	}
+	//inFile.open(inFileName);
+	//if (!inFile.is_open()) {
+	//	return 1;
+	//}
 
-	while (inFile) {
-		string line;
-		getline(inFile, line, ':');
+	//while (inFile) {
+	//	string line;
+	//	getline(inFile, line, ':');
 
-		int pop;
-		inFile >> pop;
+	//	int pop;
+	//	inFile >> pop;
 
-		//inFile.get();
-		inFile >> ws;
+	//	//inFile.get();
+	//	inFile >> ws;
 
-		cout << "'" << line << "'" << "---" << "'" << pop << "'" << endl;
+	//	cout << "'" << line << "'" << "---" << "'" << pop << "'" << endl;
 
-		if (!inFile) {
-			break;
-		}
-	}
+	//	if (!inFile) {
+	//		break;
+	//	}
+	//}
 
-	inFile.close();
+	//inFile.close();
+
+	cout << sizeof(Person) << endl;
 
 	return 0;
 }
